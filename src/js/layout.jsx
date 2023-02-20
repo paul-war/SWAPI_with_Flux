@@ -6,7 +6,7 @@ import { Home } from "./views/home.jsx";
 import { People } from "./views/People.jsx";
 import { Planets } from "./views/Planets.jsx";
 import { DetailsPlanets } from "./views/DetailsPlanets.jsx";
-import { Single } from "./views/single";
+import { Starships } from "./views/Starships.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -34,8 +34,9 @@ const Layout = () => {
 						<Route path="/people" element={<People />} />
 						<Route path="/planets" element={<Planets />} />
 						<Route path="/planets/:theid" element={<DetailsPlanets />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/starships/" element={<Starships />} />
+						<Route path="/reload" element={<h1 style={{color: "white"}}>400 - Bad Request.<br/><small>You must navigate this application by menus and buttons</small></h1>}/>
+						<Route path="*" element={<h1 style={{color: "white"}}>404 - Page not found!</h1>}/>
 					</Routes>
 					<Footer />
 				</ScrollToTop>

@@ -19,7 +19,7 @@ export const Navbar = () => {
               <Link className="nav-link link-secondary" to="/planets">Planets</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link link-secondary" to="/demo">Starships</Link>
+              <Link className="nav-link link-secondary" to="/starships">Starships</Link>
             </li>
             <li className="nav-item">
               <div className="dropdown">
