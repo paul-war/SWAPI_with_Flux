@@ -12,7 +12,7 @@ export const CardPeople = ({ id, name, height, hair_color, eye_color, birth_year
     const { store, actions } = useContext(Context);
     const people = store.people;
 
-    const urlImage = "https://starwars-visualguide.com/assets/img/people/" + id + ".jpg";
+    const urlImage = "https://starwars-visualguide.com/assets/img/characters/" + id + ".jpg";
     const handleOnErrorImg = (e) => {
         e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
     }
