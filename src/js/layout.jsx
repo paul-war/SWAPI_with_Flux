@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home.jsx";
 import { People } from "./views/People.jsx";
+import { DetailsPeople } from "./views/DetailsPeople.jsx";
 import { Planets } from "./views/Planets.jsx";
 import { DetailsPlanets } from "./views/DetailsPlanets.jsx";
 import { Starships } from "./views/Starships.jsx";

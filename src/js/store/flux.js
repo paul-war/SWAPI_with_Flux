@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			planets: [],
             selectPlanet: [],
+            people: [],
+            selectPeople: [],
 			favorites: []
 		},
 		actions: {
@@ -25,6 +27,24 @@ const getState = ({ getStore, getActions, setStore }) => {
                     let storage = localStorage.getItem("planets");
                 } else {
                     setStore({ planets: JSON.parse(localStorage.getItem("planets")), });
+                }
+            },
+            getPeople: (people) => { setStore({ selectPeople: people, }); },
+			getPeoples: async () => {
+                const store = getStore();
+                if (localStorage.getItem("people") === null) {
+                    const response = await fetch(`https://swapi.dev/api/people`, {
+                        method: "GET",
+                        ContentType: "application/json",
+                    });
+                    const responseJSON = await response.json();
+
+                    setStore({ people: responseJSON.results, });
+
+                    localStorage.setItem(`people`, JSON.stringify(store.people));
+                    let storage = localStorage.getItem("people");
+                } else {
+                    setStore({ people: JSON.parse(localStorage.getItem("people")), });
                 }
             },
 		}
