@@ -34,6 +34,7 @@ const Layout = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="/people" element={<People />} />
 						<Route path="/planets" element={<Planets />} />
+						<Route path="/people/:theid" element={<DetailsPeople />} />
 						<Route path="/planets/:theid" element={<DetailsPlanets />} />
 						<Route path="/starships/" element={<Starships />} />
 						<Route path="/reload" element={<h1 style={{color: "white"}}>400 - Bad Request.<br/><small>You must navigate this application by menus and buttons</small></h1>}/>

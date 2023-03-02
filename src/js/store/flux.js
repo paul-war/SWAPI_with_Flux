@@ -1,16 +1,14 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			planets: [],
             selectPlanet: [],
             people: [],
             selectPeople: [],
-			favorites: []
+			favorites: [{}],
+            selectFavorites: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => { getActions().changeColor(0, "green"); },
-			loadSomeData: () => { /** fetch().then().then(data => setStore({ "foo": data.bar })) */ },
             getPlanet: (planet) => { setStore({ selectPlanet: planet, }); },
 			getPlanets: async () => {
                 const store = getStore();
@@ -47,6 +45,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                     setStore({ people: JSON.parse(localStorage.getItem("people")), });
                 }
             },
+            addFavorite: ({id, name}, favorites) => {
+                console.log("entró", {id, name});
+                const updatedFavorites = [...favorites, {id, name}];
+                console.log(updatedFavorites);
+                
+                setStore({ favorites: [...favorites, {id, name}]});
+            }
+
 		}
 	};
 };
