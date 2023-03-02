@@ -6,23 +6,32 @@ import { Context } from '../store/appContext';
 export const FavoritesDropdown = () => {
     const { store } = useContext(Context);
     const favorites = store.favorites;
-     
-    console.log(favorites)
-      
+
+    console.log(favorites);
+
     return (
-        <div className="dropdown">
+        <div className="dropdown dropstart">
             <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Favorites
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">{favorites.length}</span>
             </button>
-            <div className="dropdown-menu" aria-labelledby="favoritesDropdown">
-                <ul className="dropdown-menu">
+            <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
+
                 {favorites.length === 0 ? (
-                <span className="dropdown-item-text">No favorites selected</span>) : (favorites.map((item) => (<li><a key={item.id} className="dropdown-item">{item.name}</a></li>)))}
-                </ul>
-            </div>
+                    <li><a className="dropdown-item">No favorites selected</a></li>
+                ) : (
+                    favorites.map((item) => (
+                        <li className="d-flex align-items-center">
+                            <a key={item.id} className="dropdown-item">{item.name}</a>
+                            <button type="button" className="btn btn-outline-danger"><i className="fa fa-trash"></i></button>
+                        </li>
+                    ))
+                )}
+
+            </ul>
         </div>
     );
 };
+
 
 
 /*  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -131,4 +140,4 @@ export const FavoritesDropdown = () => {
                     }
                 </ul>
             </div>
-        </div> } */  
+        </div> } */

@@ -5,7 +5,7 @@ const getState = ({ getStore, setStore }) => {
             selectPlanet: [],
             people: [],
             selectPeople: [],
-			favorites: [{}],
+			favorites: [],
             selectFavorites: [],
 		},
 		actions: {
@@ -47,9 +47,8 @@ const getState = ({ getStore, setStore }) => {
             },
             addFavorite: ({id, name}, favorites) => {
                 console.log("entró", {id, name});
-                const updatedFavorites = [...favorites, {id, name}];
-                console.log(updatedFavorites);
-                
+                /*const updatedFavorites = [...favorites, {id, name}];
+                console.log(updatedFavorites);*/
                 setStore({ favorites: [...favorites, {id, name}]});
             }
 
