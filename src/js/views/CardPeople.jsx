@@ -11,6 +11,7 @@ import { Context } from '../store/appContext';
 export const CardPeople = ({ id, name, height, hair_color, eye_color, birth_year }) => {
     const { store, actions } = useContext(Context);
     const people = store.people;
+    const favorites = store.favorites;
 
     const urlImage = "https://starwars-visualguide.com/assets/img/characters/" + id + ".jpg";
     const handleOnErrorImg = (e) => {
@@ -34,7 +35,7 @@ export const CardPeople = ({ id, name, height, hair_color, eye_color, birth_year
                                 Details
                         </Link>
                         <Link className="btn btn-outline-warning" 
-                            onClick={() => actions.favorites({ name, id })}>
+                            onClick={() => actions.addFavorite({id, name}, favorites)}>
                                 <i className="far fa-heart fa-lg"></i>
                         </Link>
                     </div>

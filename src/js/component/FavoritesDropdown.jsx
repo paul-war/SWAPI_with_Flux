@@ -4,7 +4,7 @@ import { Context } from '../store/appContext';
 
 
 export const FavoritesDropdown = () => {
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const favorites = store.favorites;
 
     console.log(favorites);
@@ -20,17 +20,19 @@ export const FavoritesDropdown = () => {
                     <li><a className="dropdown-item">No favorites selected</a></li>
                 ) : (
                     favorites.map((item) => (
-                        <li className="d-flex align-items-center">
-                            <a key={item.id} className="dropdown-item">{item.name}</a>
-                            <button type="button" className="btn btn-outline-danger"><i className="fa fa-trash"></i></button>
+                        <li className="d-flex align-items-center" key={item.id}>
+                            <a className="dropdown-item">{item.name}</a>
+                            <button type="button" className="btn btn-outline-warning" onClick={() => actions.deleteFavorite(item, favorites)}>
+                                <i className="fa fa-trash"></i>
+                            </button>
                         </li>
                     ))
                 )}
-
             </ul>
         </div>
     );
 };
+
 
 
 

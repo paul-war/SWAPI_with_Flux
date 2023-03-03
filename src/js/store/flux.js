@@ -47,9 +47,13 @@ const getState = ({ getStore, setStore }) => {
             },
             addFavorite: ({id, name}, favorites) => {
                 console.log("entró", {id, name});
-                /*const updatedFavorites = [...favorites, {id, name}];
-                console.log(updatedFavorites);*/
-                setStore({ favorites: [...favorites, {id, name}]});
+                setStore({ favorites: [...favorites, {name}]});
+            },
+
+            deleteFavorite: ({id, name}, favorites) => {
+                console.log("pedido de baja", {id, name});
+                const updatedFavorites = favorites.filter((favorite) => favorite.name !== name);
+                setStore({ favorites: updatedFavorites });
             }
 
 		}
